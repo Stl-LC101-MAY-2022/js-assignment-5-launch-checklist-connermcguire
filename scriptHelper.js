@@ -17,18 +17,43 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-    let pilotName = document.getElementById('pilotName')
-    if(typeof(pilotName) != '') {
-        document.getElementById("pilotName").style.borderColor = "red";
+    if(typeof(testInput) == String) {
+        return "Not a Number"
+    } else if(typeof(testInput) == Number) {
+        return "Is a Number"
+    } else {
+        return "Empty"
     }
-    let copilotName = document.getElementById('copilotName')
-    let fuel = document.getElementById('fuelLevel')
-    let cargo = document.getElementById('cargoMass')
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    let pilotName = document.getElementById('pilotName')
+    let copilotName = document.getElementById('copilotName')
+    let fuel = document.getElementById('fuelLevel')
+    let cargo = document.getElementById('cargoMass')
+    if(validateInput(pilotName) === "Not a Number") {
+        let updatedLi = document.getElementById('pilotStatus')
+        updatedLi.textContent = `Pilot ${pilotName} Ready`
+    }
 }
+// function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+//     let pilotName = document.getElementById('pilotName')
+//       if(typeof(pilotName) != '') {
+//           document.getElementById("pilotName").style.borderColor = "red";
+//       }
+//       let copilotName = document.getElementById('copilotName')
+//       if(typeof(copilotName) != '') {
+//           document.getElementById("copilotName").style.borderColor = "red";
+//       }
+//       let fuel = document.getElementById('fuelLevel')
+//       if(typeof(fuelLevel) != Number) {
+//           document.getElementById("fuelLevel").style.borderColor = "red";
+//       }
+//       let cargo = document.getElementById('cargoMass')
+//       if(typeof(cargoMass) != Number) {
+//           document.getElementById("cargoMass").style.borderColor = "red";
+//       } 
+//   }
 
 async function myFetch() {
     let planetsReturned;
