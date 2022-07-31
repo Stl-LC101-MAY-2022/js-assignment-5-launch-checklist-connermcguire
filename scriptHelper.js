@@ -17,7 +17,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   
+    let pilotName = document.getElementById('pilotName')
+    if(typeof(pilotName) != '') {
+        document.getElementById("pilotName").style.borderColor = "red";
+    }
+    let copilotName = document.getElementById('copilotName')
+    let fuel = document.getElementById('fuelLevel')
+    let cargo = document.getElementById('cargoMass')
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
