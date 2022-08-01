@@ -31,11 +31,63 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let copilotName = document.getElementById('copilotName')
     let fuel = document.getElementById('fuelLevel')
     let cargo = document.getElementById('cargoMass')
-    if(validateInput(pilotName) === "Not a Number") {
-        let updatedLi = document.getElementById('pilotStatus')
-        updatedLi.textContent = `Pilot ${pilotName} Ready`
+    if(validateInput(pilotName) !== "Not a Number" || validateInput(copilotName) !== "Not a Number" || validateInput(fuel) !== "Not a Number" || fuel < 10000 || validateInput(cargo) !== "Not a Number" || cargo > 10000) {
+        // Use magic to set faulty items div to visible
+        if(validateInput(pilotName) !== "Not a Number") {
+            let updatedLi = document.getElementById('pilotStatus')
+            updatedLi.textContent = `"${pilotName}" is an invalid name.`
+            }
+        if(validateInput(copilotName) !== "Not a Number") {
+            let updatedLi = document.getElementById('copilotStatus')
+            updatedLi.textContent = `"${copilotName}" is an invalid name.`
+        }
+        if(validateInput(fuel) !== "Is a Number") {
+            let updatedLi = document.getElementById('fuel')
+            updatedLi.textContent = `"${fuel}" should be a number.`
+        }
+        if(validateInput(fuel) === "Not a Number") {
+            if(fuel < 10000) {
+            let updatedLi = document.getElementById('fuel')
+            updatedLi.textContent = `"${fuel}" is not enough fuel for the journey!`
+            }
+        }
+        if(validateInput(cargo) !== "Is a Number") {
+            let updatedLi = document.getElementById('pilotStatus')
+            updatedLi.textContent = `"${cargo}" should be a number.`
+        }
+        if(validateInput(cargo) === "Is a Number") {
+            if(cargo > 10000) {
+            let updatedLi = document.getElementById('fuel')
+            updatedLi.textContent = `"${cargo}" is too much mass for the shuttle to take off!`
+            }
+        }
+        
     }
 }
+
+// function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+//     let pilotName = document.getElementById('pilotName')
+//     let copilotName = document.getElementById('copilotName')
+//     let fuel = document.getElementById('fuelLevel')
+//     let cargo = document.getElementById('cargoMass')
+//     if(validateInput(pilotName) === "Not a Number") {
+//         let updatedLi = document.getElementById('pilotStatus')
+//         updatedLi.textContent = `Pilot ${pilotName} Ready`
+//     }
+//     if(validateInput(copilotName) === "Not a Number") {
+//         let updatedLi = document.getElementById('copilotStatus')
+//         updatedLi.textContent = `Co-Pilot ${copilotName} Ready`
+//     }
+//     if(validateInput(fuel) === "Is a Number") {
+//         let updatedLi = document.getElementById('fuel')
+//         if(fuel >= 10000)
+//         updatedLi.textContent = `Pilot ${fuel} Ready`
+//     }
+//     if(validateInput(pilotName) === "Not a Number") {
+//         let updatedLi = document.getElementById('pilotStatus')
+//         updatedLi.textContent = `Pilot ${pilotName} Ready`
+//     }
+// }
 // function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 //     let pilotName = document.getElementById('pilotName')
 //       if(typeof(pilotName) != '') {
