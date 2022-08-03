@@ -230,10 +230,8 @@ async function myFetch() {
     planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json'
         ).then( function(response) {
             return response.json()
-        }).then(data =>{
-            let missionTarget = document.getElementById('missionTarget')
         })
-
+        
     return planetsReturned;
 }
 
