@@ -93,11 +93,7 @@ function validateInput(testInput) {
     }
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    let pilotName = document.getElementById('pilotName')
-    let copilotName = document.getElementById('copilotName')
-    let fuel = document.getElementById('fuelLevel')
-    let cargo = document.getElementById('cargoMass')
+function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { // Fixed? || What is list for?
 
     if(validateInput(pilotName) !== "Not a Number" || validateInput(copilotName) !== "Not a Number" || validateInput(fuel) !== "Is a Number" || fuel < 10000 || validateInput(cargo) !== "Is a Number" || cargo > 10000) {
         let hiddenDiv = document.getElementById('faultyItems')
