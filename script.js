@@ -1,7 +1,9 @@
 // Write your JavaScript code here!
-import { formSubmission } from "scriptHelper.js";
-//                                                      Import formSubmitHandler
+// require('./scriptHelper');
+
 // const { pickPlanet } = require("./scriptHelper");
+
+// const { formSubmission } = require("./scriptHelper")
 
 window.addEventListener("load", function() {
 
@@ -22,7 +24,6 @@ window.addEventListener("load", function() {
 });
 
 window.addEventListener("submit", function(e) { // What is e for/if it's just submission event do I use that as the trigger for form Submission
-   formSubmission(document, 'list?', document.getElementById('pilotName', document.getElementById('copilotName', document.getElementById('fuelLevel', document.getElementById('cargoMass')))))
+   e.preventDefault()
+   formSubmission(document, '', document.getElementById('pilotName'), document.getElementById('copilotName'), document.getElementById('fuelLevel'), document.getElementById('cargoMass'))
 })
-
-//  document, list, pilotName, copilotName, fuel, cargo
