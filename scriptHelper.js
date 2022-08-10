@@ -84,14 +84,213 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 // }
 
 function validateInput(testInput) {
-    if(typeof(testInput) == String) {
+    console.log(typeof(testInput))
+    console.log(testInput)
+    if(typeof(testInput) == 'string') {
         return "Not a Number"
-    } else if(typeof(testInput) == Number) {
+    } else if(typeof(testInput) == 'number') {
         return "Is a Number"
     } else {
         return "Empty"
     }
 }
+
+// validateInput(pilotName) !== "Not a Number" || validateInput(copilotName) !== "Not a Number" || validateInput(fuel) !== "Is a Number" || fuel < 10000 || validateInput(cargo) !== "Is a Number" || cargo > 10000
+
+// function formSubmission(document, list, pilotName, copilotName, fuel, cargo,) {
+//     let errorCounter = 0
+//     if(validateInput(pilotName) !== "Not a Number") {
+//         document.getElementById('pilotStatus').textContent = `"${pilotName}" is an invalid name.`
+//         document.getElementsByName('pilotName').style.borderColor = 'red'
+//         errorCounter ++
+//     } else if(validateInput(copilotName) !== "Not a Number") {
+//         document.getElementById('copilotStatus').textContent = `"${copilotName}" is an invalid name.`
+//         document.getElementsByName("copilotName").style.borderColor = "red"
+//         errorCounter ++
+//     } else if(validateInput(fuel) !== "Is a Number") {
+//         document.getElementById('fuel').textContent = `"${fuel}" should be a number.`
+//         document.getElementsByName("fuel").style.borderColor = "red"
+//         errorCounter ++
+//     } else if(validateInput(fuel) === "Not a Number") {
+//         if(fuel < 10000) {
+//             document.getElementById('fuel').textContent = `"${fuel}" is not enough fuel for the journey!`
+//             document.getElementsByName("fuel").style.borderColor = "red"
+//             errorCounter ++
+//     } else if(validateInput(cargo) !== "Is a Number") {
+//         document.getElementById('pilotStatus').textContent = `"${cargo}" should be a number.`
+//         document.getElementsByName("cargo").style.borderColor = "red"
+//         errorCounter ++
+//     } else if(validateInput(cargo) === "Is a Number") {
+//         if(cargo > 10000) {
+//             document.getElementById('fuel').textContent = `"${cargo}" is too much mass for the shuttle to take off!`
+//             document.getElementsByName("cargo").style.borderColor = "red"
+//             errorCounter ++
+//     } else if(errorCounter < 0) {
+//         let hiddenDiv = document.getElementById('faultyItems')
+//         hiddenDiv.style.visibility='visible'
+//         let status = document.getElementById('launchStatus')
+//         status.textContent = 'Shuttle is not ready for launch.'
+//         status.style.borderColor = 'red'
+//     }
+// }
+
+// function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { // Fixed? / What is list for?
+
+//     if(validateInput(pilotName) !== "Not a Number" || validateInput(copilotName) !== "Not a Number" || validateInput(fuel) !== "Is a Number" || fuel < 10000 || validateInput(cargo) !== "Is a Number" || cargo > 10000) {
+//         let hiddenDiv = document.getElementById('faultyItems')
+//         hiddenDiv.style.visibility='visible'
+//         let status = document.getElementById('launchStatus')
+//         status.textContent = 'Shuttle is not ready for launch.'
+//         status.style.borderColor = 'red'
+
+//         if(validateInput(pilotName) !== "Not a Number") {
+//             let updatedLi = document.getElementById('pilotStatus')
+//             updatedLi.textContent = `"${pilotName}" is an invalid name.`
+//             document.getElementsByName("pilotName").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(copilotName) !== "Not a Number") {
+//             let updatedLi = document.getElementById('copilotStatus')
+//             updatedLi.textContent = `"${copilotName}" is an invalid name.`
+//             document.getElementsByName("copilotName").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(fuel) !== "Is a Number") {
+//             let updatedLi = document.getElementById('fuel')
+//             updatedLi.textContent = `"${fuel}" should be a number.`
+//             document.getElementsByName("fuel").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(fuel) === "Not a Number") {
+//             if(fuel < 10000) {
+//             let updatedLi = document.getElementById('fuel')
+//             updatedLi.textContent = `"${fuel}" is not enough fuel for the journey!`
+//             document.getElementsByName("fuel").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//             }
+//         }
+
+//         if(validateInput(cargo) !== "Is a Number") {
+//             let updatedLi = document.getElementById('pilotStatus')
+//             updatedLi.textContent = `"${cargo}" should be a number.`
+//             document.getElementsByName("cargo").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(cargo) === "Is a Number") {
+//             if(cargo > 10000) {
+//             let updatedLi = document.getElementById('fuel')
+//             updatedLi.textContent = `"${cargo}" is too much mass for the shuttle to take off!`
+//             document.getElementsByName("cargo").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//             }
+//         }
+        
+//     } else if (validateInput(pilotName) === "Not a Number" && validateInput(copilotName) === "Not a Number" && validateInput(fuel) === "Is a Number" && fuel >= 10000 && validateInput(cargo) === "Is a Number" && cargo <= 10000) {
+//         let status = document.getElementById('launchStatus')
+//         status.textContent = 'Shuttle is ready for launch.'
+//         status.style.borderColor = 'green'
+//         let pilotLi = document.getElementById('pilotStatus')
+//         pilotLi.textContent = `"Pilot ${pilotName}" Ready.`
+//         let copilotLi = document.getElementById('copilotStatus')
+//         copilotLi.textContent = `"Pilot ${copilotName}" Ready.`
+
+//     }
+// }
+
+// function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { // Fixed? || What is list for?
+
+//     if(validateInput(pilotName) !== "Not a Number" || validateInput(copilotName) !== "Not a Number" || validateInput(fuel) !== "Is a Number" || fuel < 10000 || validateInput(cargo) !== "Is a Number" || cargo > 10000) {
+//         let hiddenDiv = document.getElementById('faultyItems')
+//         hiddenDiv.style.visibility='visible'
+//         let status = document.getElementById('launchStatus')
+//         status.textContent = 'Shuttle is not ready for launch.'
+//         status.style.borderColor = 'red'
+
+//         if(validateInput(pilotName) !== "Not a Number") {
+//             let updatedLi = document.getElementById('pilotStatus')
+//             updatedLi.textContent = `"${pilotName}" is an invalid name.`
+//             document.getElementById("pilotName").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(copilotName) !== "Not a Number") {
+//             let updatedLi = document.getElementById('copilotStatus')
+//             updatedLi.textContent = `"${copilotName}" is an invalid name.`
+//             document.getElementById("copilotName").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(fuel) !== "Is a Number") {
+//             let updatedLi = document.getElementById('fuel')
+//             updatedLi.textContent = `"${fuel}" should be a number.`
+//             document.getElementById("fuel").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(fuel) === "Not a Number") {
+//             if(fuel < 10000) {
+//             let updatedLi = document.getElementById('fuel')
+//             updatedLi.textContent = `"${fuel}" is not enough fuel for the journey!`
+//             document.getElementById("fuel").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//             }
+//         }
+
+//         if(validateInput(cargo) !== "Is a Number") {
+//             let updatedLi = document.getElementById('pilotStatus')
+//             updatedLi.textContent = `"${cargo}" should be a number.`
+//             document.getElementById("cargo").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//         }
+
+//         if(validateInput(cargo) === "Is a Number") {
+//             if(cargo > 10000) {
+//             let updatedLi = document.getElementById('fuel')
+//             updatedLi.textContent = `"${cargo}" is too much mass for the shuttle to take off!`
+//             document.getElementById("cargo").style.borderColor = "red"
+//             let status = document.getElementById('launchStatus')
+//             status.textContent = 'Shuttle is not ready for launch.'
+//             status.style.borderColor = 'red'
+//             }
+//         }
+        
+//     } else if (validateInput(pilotName) === "Not a Number" && validateInput(copilotName) === "Not a Number" && validateInput(fuel) === "Is a Number" && fuel >= 10000 && validateInput(cargo) === "Is a Number" && cargo <= 10000) {
+//         let status = document.getElementById('launchStatus')
+//         status.textContent = 'Shuttle is ready for launch.'
+//         status.style.borderColor = 'green'
+//         let pilotLi = document.getElementById('pilotStatus')
+//         pilotLi.textContent = `"Pilot ${pilotName}" Ready.`
+//         let copilotLi = document.getElementById('copilotStatus')
+//         copilotLi.textContent = `"Pilot ${copilotName}" Ready.`
+
+//     }
+// }
 
 function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { // Fixed? || What is list for?
 
@@ -102,10 +301,10 @@ function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { /
         status.textContent = 'Shuttle is not ready for launch.'
         status.style.borderColor = 'red'
 
-        if(validateInput(pilotName) !== "Not a Number") {
+        if(validateInput(pilotName) != "Not a Number") {
             let updatedLi = document.getElementById('pilotStatus')
             updatedLi.textContent = `"${pilotName}" is an invalid name.`
-            document.getElementById("pilotName").style.borderColor = "red"
+            document.querySelector('input[name = "pilotName"]').style.borderColor = "red"
             let status = document.getElementById('launchStatus')
             status.textContent = 'Shuttle is not ready for launch.'
             status.style.borderColor = 'red'
@@ -114,26 +313,26 @@ function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { /
         if(validateInput(copilotName) !== "Not a Number") {
             let updatedLi = document.getElementById('copilotStatus')
             updatedLi.textContent = `"${copilotName}" is an invalid name.`
-            document.getElementById("copilotName").style.borderColor = "red"
+            document.querySelector('input[name = "copilotName"]').style.borderColor = "red"
             let status = document.getElementById('launchStatus')
             status.textContent = 'Shuttle is not ready for launch.'
             status.style.borderColor = 'red'
         }
 
         if(validateInput(fuel) !== "Is a Number") {
-            let updatedLi = document.getElementById('fuel')
+            let updatedLi = document.getElementById('fuelStatus')
             updatedLi.textContent = `"${fuel}" should be a number.`
-            document.getElementById("fuel").style.borderColor = "red"
+            document.querySelector('input[name = "fuelLevel"]').style.borderColor = "red"
             let status = document.getElementById('launchStatus')
             status.textContent = 'Shuttle is not ready for launch.'
             status.style.borderColor = 'red'
         }
 
-        if(validateInput(fuel) === "Not a Number") {
+        if(validateInput(fuel) === "Is a Number") {
             if(fuel < 10000) {
-            let updatedLi = document.getElementById('fuel')
+            let updatedLi = document.getElementById('fuelStatus')
             updatedLi.textContent = `"${fuel}" is not enough fuel for the journey!`
-            document.getElementById("fuel").style.borderColor = "red"
+            document.querySelector('input[name = "fuelLevel"]').style.borderColor = "red"
             let status = document.getElementById('launchStatus')
             status.textContent = 'Shuttle is not ready for launch.'
             status.style.borderColor = 'red'
@@ -141,9 +340,9 @@ function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { /
         }
 
         if(validateInput(cargo) !== "Is a Number") {
-            let updatedLi = document.getElementById('pilotStatus')
+            let updatedLi = document.getElementById('cargoStatus')
             updatedLi.textContent = `"${cargo}" should be a number.`
-            document.getElementById("cargo").style.borderColor = "red"
+            document.querySelector('input[name = "cargoMass"]').style.borderColor = "red"
             let status = document.getElementById('launchStatus')
             status.textContent = 'Shuttle is not ready for launch.'
             status.style.borderColor = 'red'
@@ -151,9 +350,9 @@ function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { /
 
         if(validateInput(cargo) === "Is a Number") {
             if(cargo > 10000) {
-            let updatedLi = document.getElementById('fuel')
+            let updatedLi = document.getElementById('cargoStatus')
             updatedLi.textContent = `"${cargo}" is too much mass for the shuttle to take off!`
-            document.getElementById("cargo").style.borderColor = "red"
+            document.querySelector('input[name = "cargoMass"]').style.borderColor = "red"
             let status = document.getElementById('launchStatus')
             status.textContent = 'Shuttle is not ready for launch.'
             status.style.borderColor = 'red'
@@ -172,53 +371,7 @@ function formSubmission(document, list, pilotName, copilotName, fuel, cargo) { /
     }
 }
 
-// function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-//     let pilotName = document.getElementById('pilotName')
-//     let copilotName = document.getElementById('copilotName')
-//     let fuel = document.getElementById('fuelLevel')
-//     let cargo = document.getElementById('cargoMass')
-//     if(validateInput(pilotName) === "Not a Number") {
-//         let updatedLi = document.getElementById('pilotStatus')
-//         updatedLi.textContent = `Pilot ${pilotName} Ready`
-//     }
-//     if(validateInput(copilotName) === "Not a Number") {
-//         let updatedLi = document.getElementById('copilotStatus')
-//         updatedLi.textContent = `Co-Pilot ${copilotName} Ready`
-//     }
-//     if(validateInput(fuel) === "Is a Number") {
-//         let updatedLi = document.getElementById('fuel')
-//         if(fuel >= 10000)
-//         updatedLi.textContent = `Pilot ${fuel} Ready`
-//     }
-//     if(validateInput(pilotName) === "Not a Number") {
-//         let updatedLi = document.getElementById('pilotStatus')
-//         updatedLi.textContent = `Pilot ${pilotName} Ready`
-//     }
-// }
-// function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-//     let pilotName = document.getElementById('pilotName')
-//       if(typeof(pilotName) != '') {
-//           document.getElementById("pilotName").style.borderColor = "red";
-//       }
-//       let copilotName = document.getElementById('copilotName')
-//       if(typeof(copilotName) != '') {
-//           document.getElementById("copilotName").style.borderColor = "red";
-//       }
-//       let fuel = document.getElementById('fuelLevel')
-//       if(typeof(fuelLevel) != Number) {
-//           document.getElementById("fuelLevel").style.borderColor = "red";
-//       }
-//       let cargo = document.getElementById('cargoMass')
-//       if(typeof(cargoMass) != Number) {
-//           document.getElementById("cargoMass").style.borderColor = "red";
-//       } 
-//   }
 
-// fetch('https://handlers.education.launchcode.org/static/astronauts.json'
-//     ).then(res => {
-//         return res.json()
-//     }).then(data => {
-//         let container = document.getElementById('container')
 
 async function myFetch() {
     let planetsReturned;

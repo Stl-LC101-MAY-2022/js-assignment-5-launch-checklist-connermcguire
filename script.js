@@ -22,8 +22,7 @@ window.addEventListener("load", function() {
     })
    
 });
-
 window.addEventListener("submit", function(e) { // What is e for/if it's just submission event do I use that as the trigger for form Submission
    e.preventDefault()
-   formSubmission(document, '', document.getElementById('pilotName'), document.getElementById('copilotName'), document.getElementById('fuelLevel'), document.getElementById('cargoMass'))
+   formSubmission(document, '', document.querySelector('input[name = "pilotName"]').value, document.querySelector('input[name = "copilotName"]').value, Number(document.querySelector('input[name = "fuelLevel"]').value), Number(document.querySelector('input[name = "cargoMass"]').value))
 })
